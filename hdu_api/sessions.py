@@ -8,6 +8,8 @@ hdu_api.sessions
 This module implement the management of session for hdu_api.
 """
 
+from __future__ import unicode_literals
+
 import re
 
 from bs4 import BeautifulSoup
@@ -38,7 +40,7 @@ class BaseSessionLoginMixin(BaseSession):
     """混合登录功能"""
 
     def __init__(self, username, password):
-        super().__init__()
+        super(BaseSessionLoginMixin, self).__init__()
         self.username = username
         self.password = password
         self.realname = None
@@ -113,11 +115,11 @@ class TeachingSessionLoginMixin(BaseSessionLoginMixin):
     """
 
     def __init__(self, username, password):
-        super().__init__(username, password)
+        super(TeachingSessionLoginMixin, self).__init__(username, password)
         self.home_url = HOME_URLS['teaching'].format(username=username)
 
     def login(self, headers=TEACHING_HEADERS):
-        super().login(headers)
+        super(TeachingSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         """登录数字杭电，然后转跳到教务系统。"""
@@ -154,11 +156,11 @@ class CardSessionLoginMixin(BaseSessionLoginMixin):
     """
 
     def __init__(self, username, password):
-        super().__init__(username, password)
+        super(CardSessionLoginMixin, self).__init__(username, password)
         self.home_url = HOME_URLS['card']
 
     def login(self, headers=CARD_HEADERS):
-        super().login(headers)
+        super(CardSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         payload = self._get_payload(CAS_LOGIN_URLS['card'])
@@ -204,11 +206,11 @@ class StudentSessionLoginMixin(BaseSessionLoginMixin):
     """
 
     def __init__(self, username, password):
-        super().__init__(username, password)
+        super(StudentSessionLoginMixin, self).__init__(username, password)
         self.home_url = HOME_URLS['student']
 
     def login(self, headers=STUDENT_HEADERS):
-        super().login(headers)
+        super(StudentSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         payload = self._get_payload(CAS_LOGIN_URLS['student'])
@@ -247,11 +249,11 @@ class IHDUSessionLoginMixin(BaseSessionLoginMixin):
     """
 
     def __init__(self, username, password):
-        super().__init__(username, password)
+        super(IHDUSessionLoginMixin, self).__init__(username, password)
         self.home_url = HOME_URLS['ihdu']
 
     def login(self, headers=IHDU_HEADERS):
-        super().login(headers)
+        super(IHDUSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         payload = self._get_payload(CAS_LOGIN_URLS['ihdu'])
@@ -287,11 +289,11 @@ class IHDUPhoneSessionLoginMixin(BaseSessionLoginMixin):
     """
 
     def __init__(self, username, password):
-        super().__init__(username, password)
+        super(IHDUPhoneSessionLoginMixin, self).__init__(username, password)
         self.home_url = HOME_URLS['ihdu_phone']
 
     def login(self, headers=IHDU_PHONE_HEADERS):
-        super().login(headers)
+        super(IHDUPhoneSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         payload = self._get_payload(CAS_LOGIN_URLS['ihdu_phone'])

@@ -7,6 +7,8 @@ hdu_api.models
 This module contains the primary object that power hdu_api.
 """
 
+from __future__ import unicode_literals
+
 import re
 import time
 

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import unicode_literals
+
 # urls
 CAS_LOGIN_URLS = {
     'teaching': "http://cas.hdu.edu.cn/cas/login?service=http://jxgl.hdu.edu.cn/index.aspx",

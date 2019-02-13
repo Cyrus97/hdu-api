@@ -6,8 +6,17 @@ hdu_api._internal_utils
 
 
 """
+import sys
 
 from hdu_api import _pyDes
+
+_ver = sys.version_info
+
+#: Python 2.x?
+is_py2 = (_ver[0] == 2)
+
+#: Python 3.x?
+is_py3 = (_ver[0] == 3)
 
 
 def encrypt(data, first_key, second_key, third_key):
@@ -37,15 +46,20 @@ def encrypt(data, first_key, second_key, third_key):
         i += 8
     str_result = ''
     for each in bts_result:
+        if is_py2:
+            each = ord(each)
         str_result += '%02X' % each  # 分别加密data的各段，串联成字符串
     return str_result
 
 
 def extend_to_16bits(data):  # 将字符串的每个字符前插入 0，变成16位，并在后面补0，使其长度是64位整数倍
     bts = data.encode()
+    c = 0
+    if is_py2:
+        c = chr(c)
     filled_bts = []
     for each in bts:
-        filled_bts.extend([0, each])  # 每个字符前插入 0
+        filled_bts.extend([c, each])  # 每个字符前插入 0
     while len(filled_bts) % 8 != 0:  # 长度扩展到8的倍数
-        filled_bts.append(0)  # 不是8的倍数，后面添加0，便于DES加密时分组
+        filled_bts.append(c)  # 不是8的倍数，后面添加0，便于DES加密时分组
     return filled_bts

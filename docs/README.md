@@ -1,10 +1,8 @@
 # 简介
 
-![](https://img.shields.io/pypi/v/hdu-api.svg?style=flat) ![](https://img.shields.io/pypi/pyversions/hdu-api.svg?style=flat)
-![](https://img.shields.io/pypi/l/hdu-api.svg?style=flat)
+![](https://img.shields.io/pypi/v/hdu-api.svg?style=flat) ![](https://img.shields.io/pypi/pyversions/hdu-api.svg?style=flat) ![](https://img.shields.io/pypi/l/hdu-api.svg?style=flat)
 
-```
-
+```text
       ___          ___          ___          ___                             
      /  /\        /  /\        /  /\        /  /\         ___          ___   
     /  /:/       /  /::\      /  /:/       /  /::\       /  /\        /__/\  
@@ -15,9 +13,8 @@
       \__\::/  \  \:\  /:/  \  \:\  /:/      \__\::/ \__\/  \:\/:/\  \::/    
       /  /:/    \  \:\/:/    \  \:\/:/       /  /:/       \  \::/  \  \:\    
      /__/:/      \__\::/      \  \::/       /__/:/         \__\/    \__\/    
-     \__\/           ~~        \__\/        \__\/                            
-
+     \__\/           ~~        \__\/        \__\/
 ```
 
-hdu-api 是一个集结 HDU 所有教务管理服务的 SDK，提供了一卡通服务、考试、课表、选课和一些公共信息如空闲教室、上课时间等信息的 API。
-hdu-api 主要基于 Requests 库和 Beautiful Soup 库写成。
+hdu-api 是一个集结 HDU 所有教务管理服务的 SDK，提供了一卡通服务、考试、课表、选课和一些公共信息如空闲教室、上课时间等信息的 API。 hdu-api 主要基于 Requests 库和 Beautiful Soup 库写成。
+

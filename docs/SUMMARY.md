@@ -1,8 +1,6 @@
 # Table of contents
 
-* [HDU-API](README.md)
-* [简介](docs/README.md)
-  * [SUMMARY](docs/summary.md)
+* [简介](README.md)
 * [安装 hdu-api](install.md)
 * [快速开始](quickstart.md)
 * [APIS](apis/README.md)

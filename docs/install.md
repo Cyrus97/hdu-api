@@ -1,4 +1,4 @@
-# 安装 hdu-api
+# 安装
 
 这一部分文档包含了 `hdu-api` 的安装方式。
 
@@ -16,15 +16,16 @@ $ pip install hdu-api
 
 你可以先克隆该仓库：
 
-```
+```text
 $ git clone https://github.com/Cyrus97/hdu-api
 ```
 
 之后再从源码安装：
 
-```
+```text
 $ cd hdu-api
 
 # 确保当前目录在 hdu-api 文件夹
 $ pip install .
 ```
+

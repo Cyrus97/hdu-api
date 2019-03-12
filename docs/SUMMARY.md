@@ -4,7 +4,7 @@
 * [安装](install.md)
 * [快速上手](quickstart.md)
 * [APIS](apis/README.md)
-  * [创建 client](apis/create.md)
+  * [hdu\_api](apis/create.md)
   * [一卡通 API](apis/card.md)
   * [考试 API](apis/exam.md)
   * [课程 API](apis/course.md)

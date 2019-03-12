@@ -18,19 +18,19 @@ _class_  hdu\_api.**HDU**\(username, password, \*\*kwargs\)
 
 **Class methods**:
 
-_classmethod_  HDU.**create**\(\*args\)
+- _classmethod_  HDU.**create**\(\*args\)
 
-&ensp;&ensp;返回一个 `HduClient` 对象。
+    &ensp;&ensp;返回一个 `HduClient` 对象。
 
 **Class attributes**:
 
-HDU.username
+- HDU.username
 
-&ensp;&ensp;学号，字符串类型。
+    &ensp;&ensp;学号，字符串类型。
 
-HDU.password
+- HDU.password
 
-&ensp;&ensp;密码，数字杭电的密码，字符串类型。
+    &ensp;&ensp;密码，数字杭电的密码，字符串类型。
 
 ## `HduClient` Objects
 
@@ -50,30 +50,30 @@ _class_  hdu_api.**HduClient**(sess_mgr, \*\*kwargs)
 
 **Class attributes**:
 
-HduClient.sess_mgr
+- HduClient.sess_mgr
 
-&ensp;&ensp;`SessionManager` 对象，提供了 session 管理。
+    &ensp;&ensp;`SessionManager` 对象，提供了 session 管理。
 
-HduClient.username
+- HduClient.username
 
-&ensp;&ensp;学号，字符串类型。
+    &ensp;&ensp;学号，字符串类型。
     
-HduClient.card
+- HduClient.card
 
-&ensp;&ensp;`Card` 对象，提供了对一卡通 API 的访问，详情请查看[这里](card.md)。
+    &ensp;&ensp;`Card` 对象，提供了对一卡通 API 的访问，详情请查看[这里](card.md)。
 
-HduClient.exam
+- HduClient.exam
 
-&ensp;&ensp;`Exam` 对象，提供了对考试 API 的访问，详情请查看[这里](exam.md)。
+    &ensp;&ensp;`Exam` 对象，提供了对考试 API 的访问，详情请查看[这里](exam.md)。
 
-HduClient.person
+- HduClient.person
 
-&ensp;&ensp;`Person` 对象，提供了对个人信息 API 的访问，详情请查看[这里](person.md)。
+    &ensp;&ensp;`Person` 对象，提供了对个人信息 API 的访问，详情请查看[这里](person.md)。
 
-HduClient.course
+- HduClient.course
 
-&ensp;&ensp;`Course` 对象，提供了对课程 API 的访问，详情请查看[这里](course.md)。
+    &ensp;&ensp;`Course` 对象，提供了对课程 API 的访问，详情请查看[这里](course.md)。
 
-HduClient.public
+- HduClient.public
 
-&ensp;&ensp;`Public` 对象，提供了对公共信息 API 的访问，详情请查看[这里](public.md)。
+    &ensp;&ensp;`Public` 对象，提供了对公共信息 API 的访问，详情请查看[这里](public.md)。

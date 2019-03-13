@@ -38,11 +38,11 @@ _class_  hdu\_api.**HDU**(_username, password, \*\*kwargs_)
 
 **Constructor**:
 
-_class_ hdu_api.**HduClient**(_sess_mgr, \*\*kwargs_)
+_class_ hdu\_api.**HduClient**(_sess\_mgr, \*\*kwargs_)
 
 | 参数 | type | required | default | 备注 |
 | :---: | :---: | :---: | :---: | :---: |
-| sess_mgr | objects `SessionManager` | true | 无 | |
+| sess\_mgr | objects `SessionManager` | true | 无 | |
 | kwargs | dict | false | 无 |  |
 
 **Class methods**:
@@ -50,7 +50,7 @@ _class_ hdu_api.**HduClient**(_sess_mgr, \*\*kwargs_)
 
 **Class attributes**:
 
-- HduClient.**sess_mgr**
+- HduClient.**sess\_mgr**
 
     &ensp;&ensp;`SessionManager` 对象，提供了 session 管理。
 

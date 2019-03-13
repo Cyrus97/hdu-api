@@ -8,7 +8,7 @@
 
 **Constructor**:
 
-_class_  hdu\_api.**HDU**\(*username, password, \*\*kwargs*)
+_class_  hdu\_api.**HDU**(_username, password, \*\*kwargs_)
 
 | 参数 | type | required | default | 备注 |
 | :---: | :---: | :---: | :---: | :---: |
@@ -18,7 +18,7 @@ _class_  hdu\_api.**HDU**\(*username, password, \*\*kwargs*)
 
 **Class methods**:
 
-- _classmethod_ HDU.**create**\(*\*args*)
+- _classmethod_ HDU.**create**\(_\*args_)
 
     &ensp;&ensp;返回一个 `HduClient` 对象。
 
@@ -38,7 +38,7 @@ _class_  hdu\_api.**HDU**\(*username, password, \*\*kwargs*)
 
 **Constructor**:
 
-_class_ hdu_api.**HduClient**(*sess_mgr, \*\*kwargs*)
+_class_ hdu_api.**HduClient**(_sess_mgr, \*\*kwargs_)
 
 | 参数 | type | required | default | 备注 |
 | :---: | :---: | :---: | :---: | :---: |

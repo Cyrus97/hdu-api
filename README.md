@@ -9,6 +9,7 @@ A simple SDK for HDU.
   <a href="https://github.com/Cyrus97/hdu-api"><img src="https://img.shields.io/pypi/pyversions/hdu-api.svg?style=flat"></a>
   <a href="https://github.com/Cyrus97/hdu-api/blob/master/LICENSE"><img src="https://img.shields.io/pypi/l/hdu-api.svg?style=flat"></a>
   <a href="https://pepy.tech/project/hdu-api"><img src="https://pepy.tech/badge/hdu-api"></a> 
+  <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
 </p>
 
 ---

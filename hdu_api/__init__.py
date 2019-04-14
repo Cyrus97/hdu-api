@@ -34,6 +34,6 @@ del hard_dependencies, missing_dependencies
 from .__version__ import __title__, __description__, __url__, __version__
 from .__version__ import __build__, __author__, __author_email__, __license__
 
-from .api import HDU, Client
+from .api import HDU, HduClient
 from .sessions import SessionManager, TeachingSession, CardSession, StudentSession, IHDUSession, IHDUPhoneSession
 from .models import Card, Exam, Course, Person, Public, get_current_term

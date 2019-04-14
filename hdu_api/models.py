@@ -26,7 +26,7 @@ class BaseModel(object):
 class CardBaseModel(BaseModel):
     """一卡通系统"""
 
-    def __init__(self, session):
+    def __init__(self, session: CardSession):
         if isinstance(session, CardSession):
             self.session = session
             # viewstates 储存表单的一个数据，该数据需要提前刷新页面得到
@@ -41,7 +41,7 @@ class CardBaseModel(BaseModel):
 class TeachingBaseModel(BaseModel):
     """教务管理系统"""
 
-    def __init__(self, session):
+    def __init__(self, session: TeachingSession):
         if isinstance(session, TeachingSession):
             self.session = session
             self.username = session.username
@@ -59,7 +59,7 @@ class TeachingBaseModel(BaseModel):
 class StudentBaseModel(BaseModel):
     """学生管理系统"""
 
-    def __init__(self, session):
+    def __init__(self, session: StudentSession):
         if isinstance(session, StudentSession):
             self.session = session
         else:
@@ -69,7 +69,7 @@ class StudentBaseModel(BaseModel):
 class IHDUBaseModel(BaseModel):
     """ihdu"""
 
-    def __init__(self, session):
+    def __init__(self, session: IHDUSession):
         if isinstance(session, IHDUSession):
             self.session = session
         else:
@@ -79,7 +79,7 @@ class IHDUBaseModel(BaseModel):
 class IHDUPhoneBaseModel(BaseModel):
     """ihdu 手机版"""
 
-    def __init__(self, session):
+    def __init__(self, session: IHDUPhoneSession):
         if isinstance(session, IHDUPhoneSession):
             self.session = session
         else:

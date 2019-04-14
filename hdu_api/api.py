@@ -22,12 +22,14 @@ class HDU(object):
     def create(self, multi=True, *args):
         """Create a client to use API."""
         sess_mgr = SessionManager(self.username, self.password)
-        sess_mgr.create()
-        return Client(sess_mgr)
+        sess_mgr.create(multi)
+        return HduClient(sess_mgr)
 
 
-class Client(BaseClient):
-    """"""
+class HduClient(object):
+    """
+    Use a HduClient to access all APIs.
+    """
 
     def __init__(self, sess_mgr, **kwargs):
         if isinstance(sess_mgr, SessionManager):

@@ -19,7 +19,7 @@ from hdu_api.config import DEFAULT_DICTIONARY
 from hdu_api.sessions import CardSession, TeachingSession, StudentSession, IHDUPhoneSession, BaseSession, IHDUSession
 
 
-class BaseModel:
+class BaseModel(object):
     pass
 
 

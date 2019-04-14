@@ -11,6 +11,7 @@ This module implement the management of session for hdu_api.
 from __future__ import unicode_literals
 
 import re
+from threading import Thread
 
 from bs4 import BeautifulSoup
 from requests import Session
@@ -19,10 +20,9 @@ from hdu_api._internal_utils import encrypt
 from hdu_api.config import CAS_LOGIN_HEADERS, TEACHING_HEADERS, STUDENT_HEADERS, CARD_HEADERS, IHDU_HEADERS, \
     IHDU_PHONE_HEADERS
 from hdu_api.config import HOME_URLS, CAS_LOGIN_URLS, CARD_ERROR_URL
-
-# 登录重试次数
 from hdu_api.exceptions import LoginFailException
 
+# 登录重试次数
 RETRY = 3
 
 CARD_SESSION_NAME = 'card'
@@ -344,27 +344,44 @@ class IHDUPhoneSession(IHDUPhoneSessionLoginMixin):
     """ihdu 手机版(http://once.hdu.edu.cn/dcp/xphone/m.jsp) 的 session"""
 
 
-class SessionManager:
+class SessionManager(object):
     def __init__(self, username, password, **kwargs):
         self.username = username
         self.password = password
         self.sessions = dict()
 
-    def create(self):
+    def create(self, multi=True):
         """
         create and return a new and usable session dict.
         """
 
         card_sess = CardSession(self.username, self.password)
-        card_sess.login()
         teaching_sess = TeachingSession(self.username, self.password)
-        teaching_sess.login()
         student_sess = StudentSession(self.username, self.password)
-        student_sess.login()
         ihdu_phone_sess = IHDUPhoneSession(self.username, self.password)
-        ihdu_phone_sess.login()
         ihdu_sess = IHDUSession(self.username, self.password)
-        ihdu_sess.login()
+
+        if multi:
+            threads = [
+                Thread(target=card_sess.login),
+                Thread(target=teaching_sess.login),
+                Thread(target=student_sess.login),
+                Thread(target=ihdu_phone_sess.login),
+                Thread(target=ihdu_sess.login),
+            ]
+
+            for t in threads:
+                t.start()
+
+            for t in threads:
+                t.join()
+
+        else:
+            card_sess.login()
+            teaching_sess.login()
+            student_sess.login()
+            ihdu_phone_sess.login()
+            ihdu_sess.login()
 
         self.sessions.update({
             CARD_SESSION_NAME: card_sess,
@@ -377,16 +394,16 @@ class SessionManager:
         return self.sessions
 
     def get_teaching_session(self):
-        return self.sessions[TEACHING_SEESION_NAME]
+        return self.sessions.get(TEACHING_SEESION_NAME)
 
     def get_card_session(self):
-        return self.sessions[CARD_SESSION_NAME]
+        return self.sessions.get(CARD_SESSION_NAME)
 
     def get_student_session(self):
-        return self.sessions[STUDENT_SESSION_NAME]
+        return self.sessions.get(STUDENT_SESSION_NAME)
 
     def get_ihdu_session(self):
-        return self.sessions[IHDU_SESSION_NAME]
+        return self.sessions.get(IHDU_SESSION_NAME)
 
     def get_ihdu_phone_session(self):
-        return self.sessions[IHDU_PHONE_SESSION_NAME]
+        return self.sessions.get(IHDU_PHONE_SESSION_NAME)

@@ -4,7 +4,7 @@
 hdu_api.exceptions
 ------------------
 
-
+This module implements the exceptions that used in hdu-api.
 """
 
 

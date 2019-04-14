@@ -19,15 +19,11 @@ class HDU(object):
     def __str__(self):
         return "<HDU [username={}]>".format(self.username)
 
-    def create(self, *args):
+    def create(self, multi=True, *args):
         """Create a client to use API."""
         sess_mgr = SessionManager(self.username, self.password)
         sess_mgr.create()
         return Client(sess_mgr)
-
-
-class BaseClient(object):
-    pass
 
 
 class Client(BaseClient):

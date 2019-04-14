@@ -13,8 +13,8 @@
 HDU-API
 -------
 
-HDU-API is a easy sdk for hdu, written in Python, basing on
-the requests library and the bs4 library mainly.
+HDU-API is a simple sdk for hdu to access the information in the school's websites, written in Python,
+basing on the requests library and the bs4 library mainly.
 """
 
 hard_dependencies = ("requests", "bs4", "lxml")

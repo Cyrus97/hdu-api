@@ -56,13 +56,15 @@ class BaseSessionLoginMixin(BaseSession):
             self.headers.update(headers)  # 更新 headers
 
             if self._check_sess_vaild():
-                return
+                return True
             else:
                 self.cookies.clear()  # 直接清除 cookie 有点问题
                 self.headers.clear()
 
                 if retry == RETRY:
                     raise LoginFailException('登录失败.')
+
+        return False
 
     def _do_login(self):
         raise NotImplementedError
@@ -119,7 +121,7 @@ class TeachingSessionLoginMixin(BaseSessionLoginMixin):
         self.home_url = HOME_URLS['teaching'].format(username=username)
 
     def login(self, headers=TEACHING_HEADERS):
-        super(TeachingSessionLoginMixin, self).login(headers)
+        return super(TeachingSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         """登录数字杭电，然后转跳到教务系统。"""
@@ -160,7 +162,7 @@ class CardSessionLoginMixin(BaseSessionLoginMixin):
         self.home_url = HOME_URLS['card']
 
     def login(self, headers=CARD_HEADERS):
-        super(CardSessionLoginMixin, self).login(headers)
+        return super(CardSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         payload = self._get_payload(CAS_LOGIN_URLS['card'])
@@ -210,7 +212,7 @@ class StudentSessionLoginMixin(BaseSessionLoginMixin):
         self.home_url = HOME_URLS['student']
 
     def login(self, headers=STUDENT_HEADERS):
-        super(StudentSessionLoginMixin, self).login(headers)
+        return super(StudentSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         payload = self._get_payload(CAS_LOGIN_URLS['student'])
@@ -253,7 +255,7 @@ class IHDUSessionLoginMixin(BaseSessionLoginMixin):
         self.home_url = HOME_URLS['ihdu']
 
     def login(self, headers=IHDU_HEADERS):
-        super(IHDUSessionLoginMixin, self).login(headers)
+        return super(IHDUSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         payload = self._get_payload(CAS_LOGIN_URLS['ihdu'])
@@ -293,7 +295,7 @@ class IHDUPhoneSessionLoginMixin(BaseSessionLoginMixin):
         self.home_url = HOME_URLS['ihdu_phone']
 
     def login(self, headers=IHDU_PHONE_HEADERS):
-        super(IHDUPhoneSessionLoginMixin, self).login(headers)
+        return super(IHDUPhoneSessionLoginMixin, self).login(headers)
 
     def _do_login(self):
         payload = self._get_payload(CAS_LOGIN_URLS['ihdu_phone'])

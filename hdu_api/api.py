@@ -8,7 +8,7 @@ This module implements the hdu_api API.
 """
 
 from hdu_api.models import Card, Exam, Person, Course, Public
-from hdu_api.sessions import SessionManager
+from hdu_api.sessions import SessionManager, IHDUSession
 
 
 class HDU(object):
@@ -24,6 +24,10 @@ class HDU(object):
         sess_mgr = SessionManager(self.username, self.password)
         sess_mgr.create(multi)
         return HduClient(sess_mgr)
+
+    @staticmethod
+    def verify(username, password) -> bool:
+        return IHDUSession(username, password).login()
 
 
 class HduClient(object):
